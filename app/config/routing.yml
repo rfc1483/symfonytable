@@ -1,0 +1,2 @@
+homepage:
+  resource: "@AcmeTableBundle/Resources/config/routing.yml"
