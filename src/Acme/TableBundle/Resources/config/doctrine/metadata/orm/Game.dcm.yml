@@ -1,0 +1,120 @@
+Game:
+  type: entity
+  table: game
+  fields:
+    gameId:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: game_id
+      generator:
+        strategy: IDENTITY
+    club:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+    result:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+    localGame1:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+      column: local_game1
+    localGame2:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+      column: local_game2
+    localGame3:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+      column: local_game3
+    visitorGame1:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+      column: visitor_game1
+    visitorGame2:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+      column: visitor_game2
+    visitorGame3:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+      column: visitor_game3
+    tieBreak1:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+      column: tie_break1
+    tieBreak2:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+      column: tie_break2
+    tieBreak3:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+      column: tie_break3
+    superTieBreak:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+      column: super_tie_break
+  oneToOne:
+    teamLocal:
+      targetEntity: Team
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        team_local_id:
+          referencedColumnName: team_id
+      orphanRemoval: false
+    teamVisitor:
+      targetEntity: Team
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        team_visitor_id:
+          referencedColumnName: team_id
+      orphanRemoval: false
+    teamWinner:
+      targetEntity: Team
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        team_winner_id:
+          referencedColumnName: team_id
+      orphanRemoval: false
+    teamLooser:
+      targetEntity: Team
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        team_looser_id:
+          referencedColumnName: team_id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

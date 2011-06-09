@@ -1,0 +1,49 @@
+Stage:
+  type: entity
+  table: stage
+  fields:
+    stageId:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: stage_id
+      generator:
+        strategy: IDENTITY
+    number:
+      type: integer
+      unsigned: false
+      nullable: true
+    startDate:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+      column: start_date
+    finishDate:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+      column: finish_date
+    year:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+    status:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+  oneToOne:
+    leagueLeague:
+      targetEntity: League
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        league_league_id:
+          referencedColumnName: league_id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

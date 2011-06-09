@@ -1,83 +1,36 @@
 <?php
 
 namespace Acme\TableBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(name="users")
  */
-class User {
-
+class User
+{
     /**
-     * @ORM\Id
      * @ORM\Column(type="integer")
+     * @ORM\Id
      * @ORM\GeneratedValue
-     * 
+     *
      * @var integer $id
      */
     private $id;
+
     /**
      * @ORM\Column(type="string")
-     * 
-     * @var string $name
-     */
-    private $name;
-    /**
-     * @ORM\Column(type="integer")
-     * 
-     * @var integer $age
-     */
-    private $age;
-
-
-    /**
-     * Get id
      *
-     * @return integer $id
+     * @var string $username
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $username;
 
     /**
-     * Set name
+     * @ORM\Column(type="string")
      *
-     * @param string $name
+     * @var string $password
      */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
+    private $password;
 
-    /**
-     * Get name
-     *
-     * @return string $name
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
-    /**
-     * Set age
-     *
-     * @param integer $age
-     */
-    public function setAge($age)
-    {
-        $this->age = $age;
-    }
-
-    /**
-     * Get age
-     *
-     * @return integer $age
-     */
-    public function getAge()
-    {
-        return $this->age;
-    }
 }

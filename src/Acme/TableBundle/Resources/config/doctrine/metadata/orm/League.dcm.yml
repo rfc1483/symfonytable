@@ -1,0 +1,28 @@
+League:
+  type: entity
+  table: league
+  fields:
+    leagueId:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: league_id
+      generator:
+        strategy: IDENTITY
+    name:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+    status:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+    year:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+  lifecycleCallbacks: {  }

@@ -44,45 +44,34 @@ class __TwigTemplate_d14f0c469d3869ed23f1a33068677975 extends Twig_Template
         echo "    <table id=\"tablesorter-demo\" class=\"tablesorter\"> 
         <thead> 
             <tr> 
-                <th>";
-        // line 9
-        echo twig_escape_filter($this->env, $this->getContext($context, 'foo'), "html");
-        echo "</th> 
+                <th>Last Name</th> 
                 <th>First Name</th> 
-                <th>Email</th> 
-                <th>Due</th> 
-                <th>Web Site</th> 
             </tr> 
         </thead> 
         <tbody> 
-            <tr> 
-                <td>Smith</td> 
-                <td>John</td> 
-                <td>jsmith@gmail.com</td> 
-                <td>\$50.00</td> 
-                <td>http://www.jsmith.com</td> 
-            </tr> 
-            <tr> 
-                <td>Bach</td> 
-                <td>Frank</td> 
-                <td>fbach@yahoo.com</td> 
-                <td>\$50.00</td> 
-                <td>http://www.frank.com</td> 
-            </tr> 
-            <tr> 
-                <td>Doe</td> 
-                <td>Jason</td> 
-                <td>jdoe@hotmail.com</td> 
-                <td>\$100.00</td> 
-                <td>http://www.jdoe.com</td> 
-            </tr> 
-            <tr> 
-                <td>Conway</td> 
-                <td>Tim</td> 
-                <td>tconway@earthlink.net</td> 
-                <td>\$50.00</td> 
-                <td>http://www.timconway.com</td> 
-            </tr> 
+            ";
+        // line 14
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getContext($context, 'users'));
+        foreach ($context['_seq'] as $context['_key'] => $context['user']) {
+            // line 15
+            echo "                <tr>
+                    <td>";
+            // line 16
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, 'user'), "name", array(), "any", false), "html");
+            echo "</td>
+                    <td>";
+            // line 17
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, 'user'), "age", array(), "any", false), "html");
+            echo "</td>
+                </tr>
+            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
+        $context = array_merge($_parent, array_intersect_key($context, $_parent));
+        // line 19
+        echo "            
         </tbody> 
     </table> 
 ";

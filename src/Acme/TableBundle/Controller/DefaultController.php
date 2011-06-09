@@ -12,13 +12,19 @@
 namespace Acme\TableBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Acme\TableBundle\Entity\User;
 
-class DefaultController extends Controller
-{
-    public function indexAction()
-    {
+class DefaultController extends Controller {
+
+    public function indexAction() {
+        $users = new User();
+
+        $em = $this->get('doctrine')->getEntityManager();
+        $users = $em->getRepository('AcmeTableBundle:User')->findAll();
+
         return $this->render('AcmeTableBundle:Default:index.html.twig', array(
-            'foo' => 'bar',
+            'users' => $users,
         ));
     }
+
 }

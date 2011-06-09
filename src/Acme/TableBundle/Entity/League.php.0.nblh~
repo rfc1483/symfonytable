@@ -1,0 +1,41 @@
+<?php
+
+namespace Acme\TableBundle\Entity;
+
+/**
+ * @ORM\Entity
+ */
+class League
+{
+    /**
+     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     *
+     * @var integer $leagueId
+     */
+    private $leagueId;
+
+    /**
+     * @Column(type="string")
+     *
+     * @var string $name
+     */
+    private $name;
+
+    /**
+     * @Column(type="string")
+     *
+     * @var string $status
+     */
+    private $status;
+
+    /**
+     * @Column(type="string")
+     *
+     * @var string $year
+     */
+    private $year;
+
+
+}

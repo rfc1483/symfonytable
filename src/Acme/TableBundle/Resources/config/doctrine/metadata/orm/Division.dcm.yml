@@ -1,0 +1,44 @@
+Division:
+  type: entity
+  table: division
+  fields:
+    divisionId:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: division_id
+      generator:
+        strategy: IDENTITY
+    level:
+      type: integer
+      unsigned: false
+      nullable: true
+  manyToMany:
+    teamsTeam:
+      targetEntity: Team
+      cascade: {  }
+      mappedBy: null
+      inversedBy: divisionsDivision
+      joinTable:
+        name: division_has_team
+        joinColumns:
+          -
+            name: divisions_division_id
+            referencedColumnName: division_id
+        inverseJoinColumns:
+          -
+            name: teams_team_id
+            referencedColumnName: team_id
+      orderBy: null
+  oneToOne:
+    stagesStage:
+      targetEntity: Stage
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        stages_stage_id:
+          referencedColumnName: stage_id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

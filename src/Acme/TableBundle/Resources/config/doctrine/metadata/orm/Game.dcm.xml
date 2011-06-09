@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Game" table="game">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="gameId" type="integer" column="game_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="club" type="string" column="club" length="255"/>
+    <field name="result" type="string" column="result" length="255"/>
+    <field name="localGame1" type="string" column="local_game1" length="255"/>
+    <field name="localGame2" type="string" column="local_game2" length="255"/>
+    <field name="localGame3" type="string" column="local_game3" length="255"/>
+    <field name="visitorGame1" type="string" column="visitor_game1" length="255"/>
+    <field name="visitorGame2" type="string" column="visitor_game2" length="255"/>
+    <field name="visitorGame3" type="string" column="visitor_game3" length="255"/>
+    <field name="tieBreak1" type="string" column="tie_break1" length="255"/>
+    <field name="tieBreak2" type="string" column="tie_break2" length="255"/>
+    <field name="tieBreak3" type="string" column="tie_break3" length="255"/>
+    <field name="superTieBreak" type="string" column="super_tie_break" length="255"/>
+    <many-to-one field="teamLocal" target-entity="Team" orphan-removal="">
+      <join-columns>
+        <join-column name="team_local_id" referenced-column-name="team_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="teamVisitor" target-entity="Team" orphan-removal="">
+      <join-columns>
+        <join-column name="team_visitor_id" referenced-column-name="team_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="teamWinner" target-entity="Team" orphan-removal="">
+      <join-columns>
+        <join-column name="team_winner_id" referenced-column-name="team_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="teamLooser" target-entity="Team" orphan-removal="">
+      <join-columns>
+        <join-column name="team_looser_id" referenced-column-name="team_id"/>
+      </join-columns>
+    </many-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

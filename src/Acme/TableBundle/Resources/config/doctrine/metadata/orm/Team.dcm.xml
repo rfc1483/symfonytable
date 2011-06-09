@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Team" table="team">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="teamId" type="integer" column="team_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name1" type="string" column="name1" length="255"/>
+    <field name="surname1" type="string" column="surname1" length="255"/>
+    <field name="phone1" type="string" column="phone1" length="255"/>
+    <field name="email1" type="string" column="email1" length="255"/>
+    <field name="name2" type="string" column="name2" length="255"/>
+    <field name="surname2" type="string" column="surname2" length="255"/>
+    <field name="phone2" type="string" column="phone2" length="255"/>
+    <field name="email2" type="string" column="email2" length="255"/>
+    <many-to-many field="divisionsDivision" target-entity="Division" mapped-by="teamsTeam"/>
+    <many-to-one field="leagueLeague" target-entity="League" orphan-removal="">
+      <join-columns>
+        <join-column name="league_league_id" referenced-column-name="league_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="userUser" target-entity="User" orphan-removal="">
+      <join-columns>
+        <join-column name="user_user_id" referenced-column-name="user_id"/>
+      </join-columns>
+    </many-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>
